@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" th:href="@{/image/mainPage/catravel.png}" type="image/png">
+  <title>Catravel - Trusted Online Accomodation Booking App</title>
+
+  <link rel="stylesheet" th:href="@{/css/style.css}">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+
+</head>
+
+<body>
+  <section id="nav-bar">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <a class="navbar-brand navbar-text" href="#top"><img th:src="@{/image/mainPage/CatravelLogo.png}"
+            alt="">Catravel</a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="bi bi-list"> </i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <div class="mr-auto"> </div>
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#top">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" th:href="@{/hotels/home} + '#search'">Search hotel</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#footer">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" th:href="@{/hotels/login}"><img th:src="@{/image/mainPage/login.png}" alt=""> Log in</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link sign-up-button" th:href="@{/hotels/signup}">Sign up</a>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </section>
+
+  <img th:src="@{/image/mainPage/wave4.png}" alt="" class="hotel-wave-img text-start">
+
+  <section id="signup">
+    <div class="container">
+      <div class="signup-bar">
+        <div class="signup-title">
+          <h4>Sign up</h4>
+        </div>
+        
+		<div th:switch="${signupFail}">
+	            <div th:case="${true}" class="alert alert-danger text-center" role="alert">
+            		The email account already exist. Please <a href="#" class="alert-link">Log in</a> or Sign up again.
+          		</div>
+            	<div th:case="*"> </div>
+          </div>
+          
+        <form class="signup-form" th:action="@{/hotels/add}" th:object="${customer}" method="post">
+          <fieldset>
+            <div class="mb-3 email">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" th:field="*{email}" class="form-control" id="email" placeholder="Enter your email"
+                required>
+              <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="text-danger"> </span>
+            </div>
+
+            <div class="row mb-3 name">
+              <div class="col-md-6">
+                <label for="fname" class="form-label">First name</label>
+                <input type="text" th:field="*{fname}" class="form-control" id="fname"
+                  placeholder="Enter your first name" required>
+                <span th:if="${#fields.hasErrors('fname')}" th:errors="*{fname}" class="text-danger"> </span>
+              </div>
+              <div class="col-md-6">
+                <label for="lname" class="form-label">Last name</label>
+                <input type="text" th:field="*{lname}" class="form-control" id="lname"
+                  placeholder="Enter your last name" required>
+                <span th:if="${#fields.hasErrors('lname')}" th:errors="*{lname}" class="text-danger"> </span>
+              </div>
+            </div>
+
+            <div class="mb-3 phone">
+              <label for="phone" class="form-label">Phone no.</label>
+              <input type="text" th:field="*{phone}" class="form-control" id="phone"
+                placeholder="Enter your contact no." required>
+              <span th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}" class="text-danger"> </span>
+            </div>
+
+            <div class="mb-3 password">
+              <label for="password" class="form-label">Password</label>
+              <input type="password" th:field="*{password}" class="form-control" id="password"
+                placeholder="Enter your password" required>
+              <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="text-danger"> </span>
+            </div>
+
+            <!-- <div class="mb-3 ConfirmPassword">
+                <label for="inputConfirmPassword" class="form-label">Confirm Password</label>
+                <input type="password" class="form-control" id="inputConfirmPassword" placeholder="Enter your password again" required>
+              </div> -->
+
+            <div class="mb-3">
+              <button type="submit" class="btn btn-primary signup-button" th:value="Save">Sign up</button>
+            </div>
+          </fieldset>
+
+        </form>
+
+        <div class="signup-other text-center">
+          <h6><span>or sign up with</span></h6>
+          <button type="button" class="google-button"><i class="bi bi-google"> </i> Google </button>
+          <button type="button" class="fb-button"><i class="bi bi-facebook"> </i> Facebook </button>
+          <button type="button" class="apple-button"><i class="bi bi-apple"> </i> Apple </button>
+
+          <button onclick="location.href='@{/hotels/signup}'" class="btn signup-other-button mt-2" type="button">
+            Already have an account? Sign in </button>
+
+          <p>By signing up, I agree to Catravel's Terms of Use and Privacy Policy.</p>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="text-center">
+    <img src="../image/cat/cat7.png" alt="" class="signup-img">
+
+  </div>
+
+  <section id="footer">
+    <img src="../image/mainPage/wave3.png" alt="" class="footer-img">
+
+    <div class="container">
+      <div class="row offset-1">
+        <div class="col-md-4 footer-box">
+          <img th:src="@{/image/mainPage/CatravelLogo.png}" alt="">
+          <h1 class="footer-brand">Catravel</h1>
+          <p>Quotes are one of the earliest types of testimonials (and one of the easiest to acquire, regardless of
+            industry).
+            Quotes are one of the earliest types of testimonials (and one of the easiest to acquire, regardless of
+            industry).
+          </p>
+        </div>
+
+        <div class="col-md-4 footer-box">
+          <h6>Contact Us</h6>
+          <p><i class="bi bi-geo-alt-fill"> </i> Menara Kembar Bank Rakyat, Kuala Lumpur</p>
+          <p><i class="bi bi-telephone-fill"> </i> +60 xxx-xxxxxxxx</p>
+          <p><i class="bi bi-envelope-fill"> </i> catravel@gmail.com</p>
+
+        </div>
+
+        <div class="col-md-4 footer-box">
+          <h6>Subscribe Us</h6>
+          <input type="email" class="form-control" placeholder="Your Email">
+          <button type="button" class="btn btn-primary">Subscribe</button>
+
+        </div>
+      </div>
+
+      <hr>
+      <p class="copyright">Catravel Sdn Bhd (Registration No. xxxxxxxxxxxx), Level xx Tower x, Menara Kembar Bank
+        Rakyat, xx Jalan Rakyat Brickfields, 50470 Kuala Lumpur, Malaysia
+        Copyright © 2021 Catravel</p>
+    </div>
+  </section>
+
+  <script th:src="@{/scripts/smooth-scroll.js}"></script>
+  <script>
+    var scroll = new SmoothScroll('a[href*="#"]');
+  </script>
+
+
+</body>
+
+</html>

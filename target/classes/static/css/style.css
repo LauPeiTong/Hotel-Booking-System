@@ -1,0 +1,1037 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+/* ----------------------------navbar section---------------------------- */
+#nav-bar{
+    position: sticky;
+    top: 0;
+    margin-bottom: -20px;
+    z-index: 100;
+}
+
+.navbar{
+    background-image: linear-gradient(to right, #464a58, #1B224A);
+    padding: 0;
+    border-radius: 0px 0px 20px 20px;
+
+}
+
+.navbar-brand img{
+    height: 45px;
+    width: 50px;
+}
+
+.navbar-text{
+    color: #EDE2DC !important;
+    font-weight: 500;
+    font-size: 25px !important;
+}
+
+.navbar-nav li{
+    padding: 0 10px;
+}
+
+.navbar-nav li a{
+    color: #EDE2DC !important;
+    font-weight: 400;
+    float: right;
+    text-align: left;
+}
+
+.navbar-nav li a:hover{
+    color: #BBB2B5 !important;
+}
+
+.navbar-toggler{
+    outline: none !important;
+}
+
+.navbar-toggler:focus{
+    box-shadow: none !important;
+}
+
+.bi-list{
+    color: #EDE2DC;
+    font-size: 30px !important;
+}
+
+.nav-link img{
+    height: 30px;
+    width: 40px;
+    margin-top: -10%;
+}
+
+.navbar-nav li:nth-last-child(1) a{
+    color: #1B224A !important;
+    text-align: center;
+    font-weight: 500;
+}
+
+.sign-up-button{
+    background-color: #EDE2DC;
+    border-radius: 15px;
+    width: 90px;
+    padding-top: 5px !important;
+}
+
+.navbar-nav li:nth-last-child(1) a:hover{
+    color: #EDE2DC !important;
+}
+
+.sign-up-button:hover{
+    background-color: #1B224A;
+    border: 2px solid #EDE2DC;
+}
+
+/* ----------------------------banner section---------------------------- */
+#banner{
+    background-image: linear-gradient(to right, #464a58, #1B224A);
+    color: #EDE2DC;
+    padding-top: 5%;
+}
+
+#banner .promo-title{
+    font-size: 40px;
+    font-weight: 600;
+    margin-top: 100px;
+}
+
+#banner-2{
+    background-image: linear-gradient(to right, #464a58, #1B224A);
+    color: #EDE2DC;
+    padding-bottom: 5%;
+}
+
+#banner-2 .promo-title{
+    font-size: 40px;
+    font-weight: 600;
+    margin-top: 10%;
+}
+
+.promo-img{
+    /* #banner2 */
+    width: 80%;
+    margin: 50px;
+}
+
+.step-banner{
+    width: 300px;
+    margin: 50px;
+}
+
+.step-banner-text{
+    font-size: 50px;
+    font-weight: 650;
+    color: #BBB2B5;   
+}
+
+.step-banner-text:hover{
+    color: #f8f9fa;
+}
+
+.arrow{
+    padding: 20px;
+}
+
+.arrow button{
+    background: transparent;
+    border: none;
+    color: #EDE2DC;
+}
+
+.arrow button .bi:hover{
+    color: #ffffff;
+}
+
+.arrow button:disabled .bi{
+    color: #464a58;
+}
+
+.bi-caret-left-fill{
+    margin-right: 100px;
+}
+
+.bi-caret-right-fill{
+    margin-left: 100px;
+}
+
+.bottom-img{
+    width: 100%;
+}
+
+/* ----------------------------search/login/signup section---------------------------- */
+#search{
+    padding: 10px;
+}
+
+#search .container{
+    max-width: 1000px;
+}
+
+#search-2{
+    padding: 10px;
+    margin-top: -70px;
+}
+
+#search-2 .container{
+    max-width: 1000px;
+}
+
+.search-bar,
+.login-bar,
+.signup-bar{
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, 0.25);
+}
+
+.where-to,
+.login-title,
+.signup-title{
+    padding: 10px 50px;
+    text-align: left;
+    background-image: linear-gradient(to right, #464a58, #1B224A);
+    color: #EDE2DC;
+    border-radius: 20px 20px 0px 0px;
+}
+
+.search-form,
+.login-form,
+.signup-form{
+    padding: 10px 50px;
+    font-weight: 600;
+}
+
+.datepicker .table-condensed {
+    width: 300px;
+    height:300px;
+    color: #464a58;
+}
+
+.duration-box{
+    padding: 0px 10px;
+}
+
+.text-label{
+    line-height: 250%;
+    font-weight: 400;
+}
+
+.guest-room .form-control{
+    margin-bottom: 10px !important;
+}
+
+.search-button,
+.pay-button,
+.login-button,
+.signup-button{
+    width: 100%;
+    background-color: #AB3B61 !important;
+    border-radius: 20px !important;
+    border-color: #AB3B61 !important;
+}
+
+.search-button:hover,
+.pay-button:hover,
+.login-button:hover{
+    box-shadow: 0px 0px 10px #464a58;
+    background-color: #c7587d !important;
+}
+
+.guest-room .dropdown-menu{
+    width: 100%;
+    padding: 10px 30px;
+}
+
+/* ----------------------------services section---------------------------- */
+#services{
+    padding: 80px 0;
+
+}
+
+.service-img{
+    width: 100px;
+    margin-top: 20px;
+}
+
+.services{
+    padding: 20px;
+}
+
+.services h4{
+    padding: 5px;
+    margin-top: 25px;
+}
+
+.title{
+    color: #1B224A;
+}
+
+.title::before{
+    content: '';
+    background-image: linear-gradient(to right, #464a58, #1B224A);
+    height: 5px;
+    width: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    transform: translateY(63px);
+}
+
+#services .btn-primary{
+    box-shadow: none;
+    padding: 8px 25px;
+    border: none;
+    border-radius: 20px;
+    background-image: linear-gradient(to right, #464a58, #1B224A);
+}
+
+/* ----------------------------About us section---------------------------- */
+#about-us{
+    background: #EDE2DC;
+    padding-bottom: 50px;
+    padding-top: 50px;
+}
+
+.about-title{
+    font-size: 40px;
+    font-weight: 600;
+    margin-top: 8%;
+    color: #1B224A;
+}
+
+#about-us ul li{
+    margin: 10px 0;
+}
+
+#about-us ul{
+    margin-left: 20px;
+}
+
+/* ----------------------------Testimonials section---------------------------- */
+#testimonials{
+    margin: 50px 0;
+}
+
+.testimonials{
+    border-left: 4px solid #1B224A;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    
+}
+
+.testimonials img{
+    height: 60px;
+    width: 60px;
+    margin: 0 10px;
+    border-radius: 50%;
+}
+
+.user-details{
+    display: inline-block;
+    font-size: 12px;
+}
+
+#testimonials .title{
+    padding-bottom: 50px;
+}
+
+/* ----------------------------social media section---------------------------- */
+#social-media{
+    padding: 100px 0;
+    background: #f8f9fa;
+}
+
+#social-media p{
+    color: #1B224A;
+    font-size: 36px;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+.social-icons img{
+    width: 60px;
+    transition: 0.5s;
+
+}
+
+.social-icons a:hover img{
+    transform: translateY(-10px);
+}
+
+/* ----------------------------footer section---------------------------- */
+#footer{
+    background-image: linear-gradient(to right, #464a58, #1B224A);
+    color: #D6D9E8;
+}
+
+.footer{
+    width: 100%;
+}
+
+.footer-box{
+    padding: 20px;
+}
+
+.footer-box img{
+    height: 50px;
+    width: 55px;
+    margin-bottom: 20px;
+}
+
+.footer-brand{
+    display: inline-block;
+    color: #EDE2DC;
+}
+
+.footer-box h6{
+    margin-bottom: 25px;
+    color: #f8f9fa;
+}
+
+/* .footer-box .bi{
+    margin: 0 8px;
+    width: 40px;
+    text-align: center;
+    padding: 7px;
+    border-radius: 50%;
+    background-image: linear-gradient(to right, #464a58, #1B224A);
+} */
+
+.footer-box .form-control{
+    box-shadow: none !important;
+    border: none;
+    /* margin-top: 25px; */
+    max-width: 250px;
+}
+
+.footer-box .btn-primary{
+    color: #1B224A;
+    box-shadow: none !important;
+    border: 2px solid #464a58;
+    margin-top: 10px;
+    background: #BBB2B5;
+}
+
+.copyright{
+    color: #BBB2B5;
+    font-size: 12px;
+    margin-bottom: 0;
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+/* ----------------------------hotel result section---------------------------- */
+#hotel-result{
+    padding: 10px;
+}
+
+#hotel-result .container{
+    max-width: 1000px;
+}
+
+.result-title{
+    padding: 60px 50px 10px 50px;
+}
+
+.hotel-list,
+.room-list{
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.hotel-list:hover,
+.room-list:hover{
+    box-shadow: 0px 0px 10px 5px #bbd1df;
+}
+
+.hotel-list-img img,
+.room-list-img img{
+    width: 100%;
+    border-radius: 10px;
+    max-height: 150px;
+    object-fit: cover;
+}
+
+.hotel-list-des,
+.room-list-des{
+    margin-top: 10px;
+    border-right: 1px solid#BBB2B5;
+}
+
+.hotel-list-price,
+.room-list-price{
+    color: #DD5031;
+}
+
+.hotel-result-list a,
+.room-details a,
+.change-hotel a{
+    text-decoration: none;
+    width: 100%;
+    color: #1B224A;
+}
+
+/* ----------------------------above hotel detials section---------------------------- */
+.hotel-wave-img{
+    width: 100%;
+    padding-top: 20px;
+    background-image: linear-gradient(to right, #464a58, #1B224A);
+}
+
+#above-hotel-details{
+    position: sticky;
+    top: 20%;
+    z-index: 100;
+}
+
+.change-hotel button{
+    width: 12%;
+    min-width: 150px;
+    background-color: #464a58;
+    border: none;
+    border-radius: 0px 10px 10px 0px;
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.2);
+}
+
+.change-hotel button:hover,
+.change-hotel button:focus{
+    background-color: #464a58;
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.4);
+}
+
+/* ----------------------------hotel detials section---------------------------- */
+#hotel-details,
+#hotel-facilities,
+#room-details{
+    padding: 30px 30px 0px 30px;
+}
+
+#hotel-details .container,
+#hotel-facilities .container{
+    max-width: 1000px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    color: #1B224A;
+}
+
+.hotel-name{
+    color: #464a58;
+}
+
+.hotel-des{
+    font-size: 14px;
+    border-bottom: 1px solid #D6D9E8;
+}
+
+.hotel-img{
+    margin-top: 10px;
+    padding: 10px 0px;
+}
+
+.hotel-img img{
+    width: 100%;
+    border-radius: 10px;
+    max-height: 400px;
+    object-fit: cover;
+}
+
+.hotel-price{
+    margin: 10px 0px;
+}
+
+.hotel-price h4{
+    color: #DD5031;
+}
+
+.hotel-price button{
+    width: 200px;
+    background-color: #DD5031;
+    border-radius: 10px !important;
+    border-color: #DD5031 !important;
+}
+
+.hotel-price button:hover{
+    background-color: #da694f;
+    box-shadow: 0px 0px 10px #464a58;
+}
+
+.hotel-price button:focus{
+    background-color: #da694f;
+}
+
+.hotel-detail-des{
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px solid #D6D9E8;
+}
+
+/* ----------------------------hotel facilities section---------------------------- */
+#hotel-facilities img{
+    margin: 20px 10px 10px 10px;
+    width: 50px;
+}
+
+
+/* ----------------------------room details section---------------------------- */
+#room-details{
+    padding: 30px;
+}
+
+#room-details .container{
+    max-width: 1000px;
+    padding: 0px 30px;
+    color: #1B224A;
+}
+
+.room-title{
+    border-bottom: 1px solid #D6D9E8;
+
+}
+
+.room-list-price button{
+    width: 100%;
+    background-color: #DD5031;
+    border-radius: 10px !important;
+    border-color: #DD5031 !important;
+}
+
+.room-list-price button:hover{
+    background-color: #da694f;
+    box-shadow: 0px 0px 10px #464a58;
+}
+
+.room-list-price button:focus{
+    background-color: #da694f;
+}
+
+.room-service{
+    color: #AB3B61;
+}
+
+/* ----------------------------payment section---------------------------- */
+#payment{
+    padding: 50px 30px;
+}
+
+#payment .container{
+    max-width: 1000px;
+    padding: 0px 30px;
+    color: #1B224A;
+}
+
+.transparent{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    z-index: 20;
+}
+
+.steps {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    position: relative;
+}
+.step-button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    background-color: #D6D9E8;
+    transition: .4s;
+    color: #BBB2B5;
+}
+.step-button[aria-expanded="true"] {
+    width: 60px;
+    height: 60px;
+    background-color: #1B224A;
+    color: #fff;
+}
+.done {
+    background-color: #1B224A;
+    color: #fff;
+}
+.step-item {
+    z-index: 10;
+    text-align: center;
+}
+#progress {
+  -webkit-appearance:none;
+    position: absolute;
+    width: 95%;
+    z-index: 5;
+    height: 10px;
+    margin-left: 18px;
+    margin-bottom: 18px;
+}
+/* to customize progress bar */
+#progress::-webkit-progress-value {
+    background-image: linear-gradient(to right, #464a58, #1B224A);
+    transition: .5s ease;
+}
+
+#progress::-webkit-progress-bar {
+    background-color: #D6D9E8;
+
+}
+
+.information-card button{
+    width: 100px;
+    margin: 5px 30px;
+    border-radius: 20px;
+    transition: .5s;
+    border: 2px solid #1B224A !important;
+    background: #1B224A;
+    color: #f8f9fa;
+}
+
+#bookAgainButton{
+    width: 150px;
+    margin: 5px 30px;
+    border-radius: 20px;
+    transition: .5s;
+    border: 2px solid #1B224A !important;
+    background: #1B224A;
+    color: #f8f9fa;
+}
+
+.information-card button:focus,
+.information-card button:hover,
+#bookAgainButton:hover,
+#bookAgainButton:focus{
+    background: #f8f9fa;
+    color: #1B224A;
+}
+
+#collapseOne img,
+#collapseThree img{
+    width: 100%;
+}
+
+.card-details img{
+    padding-top: 10px;
+    width: 70px;
+}
+
+/* booking details */
+.booking-details .container{
+    box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.1);
+    background-color: #f8f9fa;
+    border-radius: 20px;
+    
+}
+
+.booking-title{
+    font-size: 17px;
+    font-weight: 500;
+    padding: 10px 0px;
+    border-bottom: 1px solid #BBB2B5;
+}
+
+.booking-hotel{
+    font-weight: 500;
+}
+
+.booking-guest{
+    border-bottom: 1px dotted #BBB2B5;
+}
+
+.booking-room-details{
+    padding-bottom: 20px;
+    border-bottom: 1px dotted #BBB2B5;
+}
+
+.booking-room-details label{
+    color: #464a58;
+}
+
+.booking-payment{
+    padding: 20px 0px;
+}
+
+/* ----------------------------login section---------------------------- */
+#login{
+    padding: 30px;
+}
+
+#login .container{
+    max-width: 1000px;
+}
+
+.login-signup{
+    padding: 0px 50px 20px 50px ;
+}
+
+.login-signup a{
+    text-decoration: none;
+}
+
+.right{
+    float: right;
+}
+
+.login-other h6,
+.signup-other h6 {
+    width: 90%; 
+    border-bottom: 1px solid #d8d1d4; 
+    line-height: 0.1em;
+    margin: 0px 30px 10px 30px; 
+    box-sizing: border-box;
+ } 
+ 
+.login-other h6 span,
+.signup-other h6 span { 
+    background:#fff; 
+    color: #1B224A;
+    padding: 0 10px; 
+}
+
+.login-other button,
+.signup-other button{
+    border-radius: 10px;
+    width: 50%;
+    padding: 5px;
+    color: #1B224A;
+    background: #EDE2DC;
+    margin:10px ;
+    border: none;
+}
+
+.google-button:hover{
+    background: #DD5031;
+    color: #f8f9fa;
+}
+
+.fb-button:hover{
+    background: #3181dd;
+    color: #f8f9fa;
+}
+
+.apple-button:hover{
+    background: #636262;
+    color: #f8f9fa;
+}
+
+.login-other p,
+.signup-other p{
+    padding-bottom: 20px;
+}
+
+.login-img{
+    width: 50%;
+    margin-bottom: -5%;
+}
+
+/* ----------------------------signup section---------------------------- */
+#signup{
+    padding: 30px;
+    background: #f8f9fa;
+}
+
+#signup .container{
+    max-width: 1000px;
+    background: #ffffff;
+}
+
+.signup-other-button{
+    margin: 5px 30px;
+    border-radius: 20px;
+    transition: .5s;
+    border: 2px solid #1B224A !important;
+    background: #1B224A !important;
+    color: #f8f9fa !important;
+}
+
+.signup-other-button:hover,
+.signup-other-button:focus{
+    background: #f8f9fa !important;
+    color: #1B224A !important;
+    font-weight: 500;
+}
+
+.signup-img{
+    width: 50%;
+}
+
+/* ----------------------------update section---------------------------- */
+#update{
+    padding: 50px 30px;
+}
+
+#update .container{
+    max-width: 1200px;
+    
+}
+
+.update-title{
+    margin-bottom: -35px;
+}
+
+.update-buttons{
+    margin-bottom: 0px;
+}
+
+#update .step-button,
+#update-booking .step-button,
+#update-user .step-button,
+#update-hotel .step-button  {
+    width: 15%;
+    min-width: 100px;
+    height: 50px;
+    border-radius: 10px 10px 0px 0px;
+    border: none;
+    background-color: #1B224A;
+    transition: .4s;
+    color: #f8f9fa;
+    margin-right: -5px;
+}
+
+#update .step-button[aria-expanded="true"], 
+#update-booking .step-button[aria-expanded="true"],
+#update-user .step-button[aria-expanded="true"],
+#update-hotel .step-button[aria-expanded="true"] {
+    width: 15%;
+    min-width: 100px;
+    height: 50px;
+    background-color: #f8f9fa;
+    color: #1B224A;
+    box-shadow: 0px -5px 20px 1px rgba(0, 0, 0, 0.1);
+    border: 2px solid #1B224A;
+    border-bottom: none;
+}
+
+#update .done,
+#update-booking .done,
+#update-user .done,
+#update-hotel .done {
+    background-color: #1B224A;
+    color: #f8f9fa;
+}
+
+.small-cat{
+    width: 50px;
+
+}
+
+#update .line,
+#update-booking .line,
+#update-user .line,
+#update-hotel .line{
+    height: 10px;
+    background-color: #1B224A;
+    border-radius: 10px;
+    margin-top: -5px;
+}
+
+#update .information-card button{
+    width: 100px;
+    margin: 5px 30px;
+    border-radius: 20px;
+    transition: .5s;
+    border: 2px solid #1B224A !important;
+    background: #1B224A;
+    color: #f8f9fa;
+}
+
+#update .information-card button:focus,
+#update .information-card button:hover{
+    background: #f8f9fa;
+    color: #1B224A;
+}
+
+#update #collapseOne img,
+#update #collapseThree img{
+    width: 100%;
+}
+
+#update .card-details img{
+    padding-top: 10px;
+    width: 70px;
+}
+
+.cursor{
+    cursor: pointer;
+}
+
+.update-link{
+    color: #1B224A;
+}
+
+.rooms-button{
+    border: none;
+    background-color: transparent;
+}
+
+/* booking */
+#update-booking .container,
+#update-user .container,
+#update-hotel .container{
+    max-width: 1000px;
+    padding: 0px 30px;
+    color: #1B224A;
+}
+
+.update-button{
+    width: 100px !important;
+    background-color: #1B224A !important;
+    border-radius: 20px !important;
+    border: 2px solid #1B224A !important;
+    margin: 10px;
+}
+
+.update-button:hover{
+    box-shadow: 0px 0px 10px #464a58;
+    background-color: #f8f9fa !important;
+    color: #1B224A !important;
+}
+
+.delete-button{
+    width: 100px !important;
+    background-color: #DD5031 !important;
+    border-radius: 20px !important;
+    border: 2px solid #DD5031 !important;
+    margin: 10px;
+}
+
+.delete-button:hover{
+    box-shadow: 0px 0px 10px #464a58;
+    background-color: #f8f9fa !important;
+    color: #DD5031 !important;
+}
+
+#update-booking .dropdown-menu,
+#update-user .dropdown-menu,
+#update-hotel .dropdown-menu{
+    width: 50%;
+    height: 300px;
+    padding: 10px 30px;
+}
+
+#update-booking .input-group-text,
+#update-user .input-group-text,
+#update-hotel .input-group-text{
+    height: 40px;
+}
+
+.find-button{
+    background-color: #1B224A !important;
+    color: #f8f9fa !important;
+    border-radius: 20px !important;
+    border: 2px solid #1B224A !important;
+}
+
+.find-button:hover{
+    box-shadow: 0px 0px 10px #464a58;
+    background-color: #f8f9fa !important;
+    color: #1B224A !important;
+}

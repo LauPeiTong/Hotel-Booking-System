@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../image/mainPage/catravel.png" type = "image/png">
+    <title>Catravel - Trusted Online Accomodation Booking App</title>
+
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+
+
+</head>
+<body>
+    <section id="nav-bar">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+              <a class="navbar-brand navbar-text" href="#top"><img th:src="@{/image/mainPage/CatravelLogo.png}" alt="">Catravel</a>
+              
+			
+			<div th:switch="${session.isLogin}">
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="bi bi-list"> </i>
+              </button>
+              <div th:case="${true}" class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="mr-auto"> </div>
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0" >
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#top">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#search">Search hotel</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#about-us">About us</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#testimonials">Testimonials</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#footer">Contact</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" th:href="@{/hotels/login}"><img th:src="@{/image/mainPage/login.png}" alt=""> My account</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link sign-up-button" th:href="@{/hotels/logout}">Log out</a>
+                  </li>
+                  
+                </ul>
+              </div>
+              
+              <div th:case="*" class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="mr-auto"> </div>
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0" >
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#top">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#search">Search hotel</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#about-us">About us</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#testimonials">Testimonials</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#footer">Contact</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" th:href="@{/hotels/login}"><img th:src="@{/image/mainPage/login.png}" alt=""> Log in</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link sign-up-button" th:href="@{/hotels/signup}">Sign up</a>
+                  </li>
+                  
+                </ul>
+              </div>
+			</div>
+            </div>
+          </nav>
+    </section>
+
+    <section id="banner">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="promo-title">BEST TRAVEL APP</p>
+                    <p>Convenient, easy-to-use and fast in booking hotel all around the world.
+                    Search and book hotel in 3 step only!</p>
+                </div>
+
+                <div class="col-md-6 text-center">
+                  <img src="../image/mainPage/step1.png" alt="" class="step-banner" id="step-banner">
+                  <label class="step-banner-text" id="step-banner-text">Search Hotel</label>
+                </div>
+            </div>
+
+            <div class="arrow text-center">
+              <button id="previous-arrow" onclick="changeImage(-1)" disabled="true">
+                <i class="bi bi-caret-left-fill"> </i>
+              </button>
+              <button id="next-arrow" onclick="changeImage(1);" value="0" >
+                <i class="bi bi-caret-right-fill"> </i>
+              </button>
+            </div>
+        </div>
+        
+        <img src="../image/mainPage/Wave1.png" alt="" class="bottom-img">
+    </section>
+
+    <section id="search">
+       <div class="container">
+        <div class="search-bar">
+          <div class=" where-to">
+            <h4>Where to?</h4>
+          </div>
+
+          <form class="search-form" 
+				  th:action="@{/hotels/search} + '#hotel-result'"
+				  th:object="${booking}">
+            <div class="mb-3 destination">
+              <label for="inputDestination" class="form-label">City, destination or hotel name</label>
+              <input type="text" th:value="${inputDestination}" name="inputDestination"  class="form-control" id="inputDestination" placeholder="Enter a city, destination or hotel name" onkeyup="this.value = this.value.toUpperCase();" required>
+            </div>
+            
+            <div class="row date">
+              <div class="col-md-4 mb-3">
+                <label for="inputCheckIn" class="form-label">Check-in</label>
+                <input type="text" th:text="${checkInDate}" name="checkInDate" class="form-control" data-provide="datepicker" id="inputCheckIn" onchange="updateCheckOut()" placeholder="Check-in date" onkeypress="return false;" required >
+              </div>
+              <div class="col-md-4  mb-3">
+                <label for="inputDuration" class="form-label">Duration</label>
+                <div class="row duration-box">
+                  <input type="number" th:text="${duration}" name="duration" class="col form-control" id="inputDuration" value="1" placeholder="1 - 30" onchange="updateCheckOut()" onkeypress="return validateNumberInput(this)" required>
+                  <span class="col text-label">night(s)</span>
+                </div>
+              </div>
+              <div class="col-md-4  mb-3">
+                <label for="outputCheckOut" class="form-label">Check-out</label>
+                <input type="text" th:text="${checkOutDate}" name="checkOutDate" class="form-control" data-provide="datepicker" id="outputCheckOut" value="" placeholder="Check-out date" onchange="updateCheckIn()" onkeypress="return false;">
+              </div>
+            </div>
+
+            <div class="row mb-3 guest-room">
+              <label for="" class="form-label">Guests and rooms</label>
+              
+              <div class="col-md-8">
+                <div class="dropdown">
+                  <input type="text" class="form-control dropdown-toggle" id="outputGuestRoom" value="1 Adult(s) , 1 Room(s)" data-bs-toggle="dropdown" aria-expanded="false" onkeypress="return false" onkeydown="return validateInput(this);">
+                  <ul class="dropdown-menu">
+                    <li>
+                      <div class="row guest-box">
+                      <input type="number" th:text="${noOfGuest}" name="noOfGuest" class="col form-control" id="inputGuest" value="1" placeholder="1 - 30" onchange="validateGuestRange()" onkeypress="return validateNumberInput(this)" required>
+                      <span class="col text-label">adult(s)</span>
+                     </div>
+                    </li>
+                    <li>
+                      <div class="row room-box">
+                      <input type="number" th:text="${noOfRoom}" name="noOfRoom" class="col form-control" id="inputRoom" value="1" placeholder="1 - 30" onchange="validateRoomRange()" onkeypress="return validateNumberInput(this)" required>
+                      <span class="col text-label">room(s)</span>
+                     </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              
+              <div class="col-md-4">
+                <button type="submit" class="btn btn-primary search-button" >Search hotel</button>
+              </div>
+            </div>
+           
+          </form>
+
+        </div>
+       </div>
+    </section>
+
+    <section id="services">
+      <div class="container text-center">
+        <h1 class="title">Why book with Catravel?</h1>
+        <div class="row text-center">
+          <div class="col-md-4 services">
+            <img src="../image/mainPage/price.png" alt="" class="service-img">
+            <h4>Honest Price</h4>
+            <p>Prices listed are inclusive of all applicable taxes, surcharges and payment fees.</p>
+          </div>
+
+          <div class="col-md-4 services">
+            <img src="../image/mainPage/Convenient.png" alt="" class="service-img">
+            <h4>Convenient</h4>
+            <p>Book hotels in 3 easy steps: Search hotel, Log in and Pay.</p>
+          </div>
+
+          <div class="col-md-4 services">
+            <img src="../image/mainPage/Payment.png" alt="" class="service-img">
+            <h4>Easy Payment Option</h4>
+            <p>Pay via Credit Card or Debit Card - with no transaction fee.</p>
+          </div>
+        </div>
+
+        <a href="#search" class="btn btn-primary">Book now</a>
+        
+      </div>
+    </section>
+
+    <section id="about-us">
+      <div class="container">
+        <h1 class="title text-center">About Us</h1>
+
+        <div class="row offset-1">
+          <div class="col-md-6 about-us">
+            <p class="about-title">How to book with Catravel?</p>
+            <ul>
+              <li>Search hotel, destination or city in search bar.</li>
+              <li>Choose the date and number of room.</li>
+              <li>Press the booking button.</li>
+              <li>Log in or register by filling your name, phone number, email and password</li>
+              <li>Make payment after booking the hotel.</li>
+              <li>The confirmation email will be sent to your email account.</li>
+            </ul>
+          </div>
+
+          <div class="col-md-6">
+            <img src="../image/cat/cat.png" alt="" class="img-fluid">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="testimonials">
+      <div class="container">
+        <h1 class="title text-center">What client say</h1>
+
+        <div class="row offset-1">
+          <div class="col-md-5 testimonials">
+            <p>Quotes are one of the earliest types of testimonials (and one of the easiest to acquire, regardless of industry).</p>
+            <img src="../image/mainPage/user1.jpg" alt="">
+            <p class="user-details"><b>Agelina</b><br> Co-founder at Catxxxxx</p>
+          </div>
+
+          <div class="col-md-5 testimonials">
+            <p>Quotes are one of the earliest types of testimonials (and one of the easiest to acquire, regardless of industry).</p>
+            <img src="../image/mainPage/user2.jpg" alt="">
+            <p class="user-details"><b>John Doe</b><br> Director at Catxxxxx</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="social-media">
+      <div class="container text-center">
+        <p>Find us on social media</p>
+        <div class="social-icons">
+          <a href="#"><img src="../image/mainPage/facebook-icon.png" alt=""></a>
+          <a href="#"><img src="../image/mainPage/instagram-icon.png" alt=""></a>
+          <a href="#"><img src="../image/mainPage/twitter-icon.png" alt=""></a>
+          <a href="#"><img src="../image/mainPage/linkedin-icon.png" alt=""></a>
+          <a href="#"><img src="../image/mainPage/whatsapp-icon.png" alt=""></a>
+          <a href="#"><img src="../image/mainPage/snapchat-icon.png" alt=""></a>
+        </div>
+      </div>
+    </section>
+
+    <section id="footer">
+      <img src="../image/mainPage/wave2.png" alt="" class="footer-img">
+
+      <div class="container">
+        <div class="row offset-1">
+          <div class="col-md-4 footer-box">
+            <img src="../image/mainPage/CatravelLogo.png" alt="">
+            <h1 class="footer-brand">Catravel</h1>
+            <p>Quotes are one of the earliest types of testimonials (and one of the easiest to acquire, regardless of industry).
+              Quotes are one of the earliest types of testimonials (and one of the easiest to acquire, regardless of industry).
+            </p>
+          </div>
+
+          <div class="col-md-4 footer-box">
+            <h6>Contact Us</h6>
+            <p><i class="bi bi-geo-alt-fill"></i> Menara Kembar Bank Rakyat, Kuala Lumpur</p>
+            <p><i class="bi bi-telephone-fill"></i> +60 xxx-xxxxxxxx</p>
+            <p><i class="bi bi-envelope-fill"></i> catravel@gmail.com</p>
+          
+          </div>
+
+          <div class="col-md-4 footer-box">
+            <h6>Subscribe Us</h6>
+            <input type="email" class="form-control" placeholder="Your Email">
+            <button type="button" class="btn btn-primary">Subscribe</button>
+            
+          </div>
+        </div>
+
+        <hr>
+        <p class="copyright">Catravel Sdn Bhd (Registration No. xxxxxxxxxxxx), Level xx Tower x, Menara Kembar Bank Rakyat, xx Jalan Rakyat Brickfields, 50470 Kuala Lumpur, Malaysia
+          Copyright © 2021 Catravel</p>
+      </div>
+    </section>
+
+
+
+     
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
+
+    <script src="..//scripts/smooth-scroll.js"></script>
+    <script>
+      var scroll = new SmoothScroll('a[href*="#"]');
+    </script>
+
+    <script type="text/javascript">
+      function changeImage(arrow){
+        var images = ["step1", "step2", "step3"];
+        var index = Math.abs(parseInt($("#next-arrow").val()) + arrow);
+        arrowButton(index);
+
+        var img = document.getElementById("step-banner");
+        var path = "../image/mainPage/";
+        
+        img.src = path + images[index] + ".png";
+        changeText(index);
+        $("#next-arrow").val(index);
+
+        return false;
+      }
+
+      function arrowButton(index){
+        let pre = document.getElementById("previous-arrow");
+        let next = document.getElementById("next-arrow");
+
+        if(index < 1){
+          pre.disabled = true;
+        }
+        else{
+          pre.disabled = false;
+        }
+
+        if(index > 1){
+          next.disabled = true;
+        }
+        else{
+          next.disabled = false;
+        }
+      }
+
+      function changeText(index){
+        var steps = ["Search Hotel", "Log in or Sign up", "Make Payment"];
+        let text = document.getElementById("step-banner-text");
+        text.innerText = steps[index];
+      }
+    </script>
+    
+    <script type= "text/javascript" src= "https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+    <link rel= "stylesheet" href= "https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+
+    <script src="..//scripts/search.js"> </script>
+
+</body>
+</html>
