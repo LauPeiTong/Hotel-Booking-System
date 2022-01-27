@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" th:href="@{/image/mainPage/catravel.png}" type = "image/png">
+    <title>Catravel - Trusted Online Accomodation Booking App</title>
+
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+
+    
+</head>
+<body>
+     <section id="nav-bar">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+              <a class="navbar-brand navbar-text" href="#top"><img th:src="@{/image/mainPage/CatravelLogo.png}" alt="">Catravel</a>
+              
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="bi bi-list"> </i>
+              </button>
+
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="mr-auto"> </div>
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0" >
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" th:href="@{/update/information}">Update information</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#footer">Contact</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#top" th:text="${session.admin.adminName}"><img th:src="@{/image/mainPage/login.png}" alt=""></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link sign-up-button" th:href="@{/hotels/logout}">Log out</a>
+                  </li>
+                  
+                </ul>
+              </div>
+            </div>
+          </nav>
+        </section>
+
+    <img th:src="@{/image/mainPage/wave1.png}" alt="" class="hotel-wave-img text-start">
+    
+    <section id="update-user">
+        <div class="container">
+        <div class="accordion " id="accordionExample">
+            <div>
+                <h3 class="update-title">Update Customer</h3>
+                <div class="update-buttons text-end">
+                    <button id="button1" class="step-button text-center" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" >
+                        Customer
+                    </button>
+                    
+                    <img src="/image/cat/cat.png" alt="" class="small-cat">
+                </div>
+            </div>
+
+            <div class="line"> </div>
+
+            <div class="cards">
+                <!-- booking -->
+                <div class="card">
+                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                        data-bs-parent="#accordionExample">
+                        <div class="card-body">
+                            <div class="booking-card mt-3 mb-5">          
+                              <form class="pay-form"
+                              		th:action="@{/update/updateUser}"
+                              		th:method="post">
+                                <div class="row mb-3">
+                                    <div class="col-md-4 mb-3">
+                                      <label for="custId" class="form-label">Customer Id</label>
+                                      <input type="text" th:value="${session.customerUpdate.custId}" class="form-control" id="custId" placeholder="" readonly>
+                                    
+                                    </div>
+                                    <div class="col-md-8">
+                                      <label for="custName" class="form-label">Customer Name</label>
+                                      <input type="text" th:value="${session.customerUpdate.fname} + ' ' + ${session.customerUpdate.lname}"  class="form-control" id="custName" placeholder="" readonly>
+                                    </div>
+                                    
+                                </div>
+
+                                <div class="row mb-3">
+                                  <div class="col-md-4 mb-3">
+                                    <label for="phone" class="form-label">Phone No.</label>
+                                    <input type="text" th:value="${session.customerUpdate.phone}" name="phone"  class="form-control" id="phone" placeholder="" required>
+                                  
+                                  </div>
+                                  <div class="col-md-8">
+                                    <label for="email" class="form-label">Email Address</label>
+                                    <input type="text" th:value="${session.customerUpdate.email}" name="email" class="form-control" id="email" placeholder="" required>
+                                  </div>
+                                </div>
+      
+  
+                                <div class="row ">
+                                    <button id="update-button" name="update" type="submit" class="btn btn-primary update-button col-md-6" >Update</button>
+                                    <button type="submit" name="delete" class="btn btn-primary delete-button col-md-6"  >Delete</button>
+                                    
+
+                                </div>
+                              </form>
+                            </div> 
+        
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        </div>
+    </section>
+    
+
+    <section id="footer">
+      <img th:src="@{/image/mainPage/wave3.png}" alt="" class="footer-img">
+
+      <div class="container">
+        <div class="row offset-1">
+          <div class="col-md-4 footer-box">
+            <img th:src="@{/image/mainPage/CatravelLogo.png}" alt="">
+            <h1 class="footer-brand">Catravel</h1>
+            <p>Quotes are one of the earliest types of testimonials (and one of the easiest to acquire, regardless of industry).
+              Quotes are one of the earliest types of testimonials (and one of the easiest to acquire, regardless of industry).
+            </p>
+          </div>
+
+          <div class="col-md-4 footer-box">
+            <h6>Contact Us</h6>
+            <p><i class="bi bi-geo-alt-fill"> </i> Menara Kembar Bank Rakyat, Kuala Lumpur</p>
+            <p><i class="bi bi-telephone-fill"> </i> +60 xxx-xxxxxxxx</p>
+            <p><i class="bi bi-envelope-fill"> </i> catravel@catravel.com</p>
+          
+          </div>
+
+          <div class="col-md-4 footer-box">
+            <h6>Subscribe Us</h6>
+            <input type="email" class="form-control" placeholder="Your Email">
+            <button type="button" class="btn btn-primary">Subscribe</button>
+            
+          </div>
+        </div>
+
+        <hr>
+        <p class="copyright">Catravel Sdn Bhd (Registration No. xxxxxxxxxxxx), Level xx Tower x, Menara Kembar Bank Rakyat, xx Jalan Rakyat Brickfields, 50470 Kuala Lumpur, Malaysia
+          Copyright © 2021 Catravel</p>
+      </div>
+    </section>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script th:src="@{/scripts/smooth-scroll.js}"></script>
+    <script>
+    var scroll = new SmoothScroll('a[href*="#"]');
+    </script>
+
+    <!-- Stepper JavaScript -->
+    <script>
+    const stepButtons = document.querySelectorAll('.step-button');
+    const progress = document.querySelector('#progress');
+
+    Array.from(stepButtons).forEach((button,index) => {
+        button.addEventListener('click', () => {
+            progress.setAttribute('value', index * 100 /(stepButtons.length - 1) );//there are 3 buttons. 2 spaces.
+
+            stepButtons.forEach((item, secindex)=>{
+                if(index > secindex){
+                    item.classList.add('done');
+                }
+                if(index < secindex){
+                    item.classList.remove('done');
+                }
+            })
+        })
+    })
+    </script>
+
+    <script type= "text/javascript" src= "https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+    <link rel= "stylesheet" href= "https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+
+    <script th:src="@{/scripts/search.js}"> </script>
+    
+    </script>
+
+   
+
+
+</body>
+</html>

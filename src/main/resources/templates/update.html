@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" th:href="@{/image/mainPage/catravel.png}" type = "image/png">
+    <title>Catravel - Trusted Online Accomodation Booking App</title>
+
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+
+    
+</head>
+<body>
+     <section id="nav-bar">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+              <a class="navbar-brand navbar-text" href="#top"><img th:src="@{/image/mainPage/CatravelLogo.png}" alt="">Catravel</a>
+              
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="bi bi-list"> </i>
+              </button>
+
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="mr-auto"> </div>
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0" >
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#top">Update information</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#footer">Contact</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#top" th:text="${session.admin.adminName}"><img th:src="@{/image/mainPage/login.png}" alt=""></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link sign-up-button" th:href="@{/hotels/logout}">Log out</a>
+                  </li>
+                  
+                </ul>
+              </div>
+            </div>
+          </nav>
+        </section>
+
+    <img th:src="@{/image/mainPage/wave1.png}" alt="" class="hotel-wave-img text-start">
+    
+    <section id="update">
+        <div class="container">
+        <div class="accordion " id="accordionExample">
+            <div>
+                <h3 class="update-title">Update Information</h3>
+                <div class="update-buttons text-end">
+                    <button id="button1" class="step-button text-center" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" >
+                        Booking
+                    </button>
+                    <button id="button2" class="step-button text-center collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" >
+                        Customer
+                    </button>
+                    <button id="button3" class="step-button text-center collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" >
+                        Hotel
+                    </button>
+                    <img th:src="@{/image/cat/cat.png}" alt="" class="small-cat">
+                </div>
+            </div>
+
+            <div class="line">
+                
+            </div>
+
+            <div class="cards">
+                <!-- booking -->
+                <div class="card">
+                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                        data-bs-parent="#accordionExample">
+                        <div class="card-body overflow-auto">
+                            <table class="table table-hover">
+                                <thead>
+                                  <tr>
+                                    <th scope="col">Booking Id</th>
+                                    <th scope="col">Customer Name</th>
+                                    <th scope="col">Check-in Date</th>
+                                    <th scope="col">Check-out Date</th>
+                                    <th scope="col">Total Payment</th>
+                                    <th scope="col">Rooms</th>
+                                    <th scope="col">Update</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr class=" " 
+                                  		th:object="${bookings}" th:each="booking : ${bookings}">
+                                    <th scope="row"  th:text="${booking.bookingId}">1</th>
+                                    <td th:text="${booking.customer.fname} + ' ' + ${booking.customer.lname}">Mark</td>
+                                    <td th:text="${booking.checkInDate}">Otto</td>
+                                    <td th:text="${booking.checkOutDate}">@mdo</td>
+                                    <td th:text="'RM' + ${#numbers.formatDecimal(booking.payment.totalAmount ,0,2)}">@mdo</td>
+                                    <td >
+                                      <div class="dropdown">
+                                        <button class="rooms-button dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                          Room id
+                                        </button>
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                        	<div th:each="bookingRoom : ${booking.bookingRooms}">
+                                          <li class="dropdown-item"  th:text="${bookingRoom.room.roomId}"> </li>
+                                        	</div>
+                                        </ul>
+                                      </div>
+                                    </td>
+                                    <td class="text-center">
+                                      <a th:href="@{/update/updateBooking/{bookingId}(bookingId=${booking.bookingId})}" type="button" class="update-link"><i class="bi bi-pencil-fill"> </i></a>
+                                    </td>
+                                    
+                                  </tr>
+                             
+                                </tbody>
+                              </table>
+                           
+                        </div>
+                    </div>
+                </div>
+                <!-- customer -->
+                <div class="card">
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                        <div class="card-body overflow-auto">
+                          <table class="table table-hover">
+                              <thead>
+                                <tr >
+                                  <th scope="col" >Customer Id</th>
+                                  <th scope="col" >Customer Name</th>
+                                  <th scope="col" >Email</th>
+                                  <th scope="col" >Phone No.</th>
+          						  <th scope="col" >Update</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr class="clickable cursor" 
+                                	th:each="customer : ${customers}">
+                                  <th scope="row" th:text="${customer.custId}">1</th>
+                                  <td th:text="${customer.fname} + ' ' + ${customer.lname}">Mark</td>
+                                  <td th:text="${customer.email}">Otto</td>
+                                  <td th:text="${customer.phone}">@mdo</td>
+                                  <td class="text-center">
+                                      <a th:href="@{/update/updateUser/{custId}(custId=${customer.custId})}" type="button" class="update-link"><i class="bi bi-pencil-fill"> </i></a>
+                                  </td>
+                                </tr>
+                                
+                              </tbody>
+                            </table>
+                         
+                        </div>
+                    </div>
+                </div>
+                <!-- hotel -->
+                <div class="card">
+                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
+                        data-bs-parent="#accordionExample">
+                        <div class="card-body overflow-auto">
+                            <table class="table table-hover">
+                                <thead>
+                                  <tr>
+                                    <th scope="col">Hotel Id</th>
+                                    <th scope="col">Hotel Name</th>
+                                    <th scope="col">Street</th>
+                                    <th scope="col">City</th>
+                                    <th scope="col">State</th>
+                                    <th scope="col">Zip Code</th>
+                                    <th scope="col">Update</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr class="clickable cursor" 
+                                  		th:each="hotel : ${hotels}">
+                                    <th scope="row" th:text="${hotel.hotelId}">1</th>
+                                    <td th:text="${hotel.hotelName}">Mark</td>
+                                    <td th:text="${hotel.street}">Otto</td>
+                                    <td th:text="${hotel.city}">@mdo</td>
+                                    <td th:text="${hotel.state}">@mdo</td>
+                                    <td th:text="${hotel.zipCode}">@mdo</td>
+                                    <td class="text-center">
+                                      <a th:href="@{/update/updateHotel/{hotelId}(hotelId=${hotel.hotelId})}" type="button" class="update-link"><i class="bi bi-pencil-fill"> </i></a>
+                                  </td>
+                                  </tr>
+                                  
+                                </tbody>
+                              </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        </div>
+    </section>
+    
+
+    <section id="footer">
+      <img th:src="@{/image/mainPage/wave3.png}" alt="" class="footer-img">
+
+      <div class="container">
+        <div class="row offset-1">
+          <div class="col-md-4 footer-box">
+            <img th:src="@{/image/mainPage/CatravelLogo.png}" alt="">
+            <h1 class="footer-brand">Catravel</h1>
+            <p>Quotes are one of the earliest types of testimonials (and one of the easiest to acquire, regardless of industry).
+              Quotes are one of the earliest types of testimonials (and one of the easiest to acquire, regardless of industry).
+            </p>
+          </div>
+
+          <div class="col-md-4 footer-box">
+            <h6>Contact Us</h6>
+            <p><i class="bi bi-geo-alt-fill"> </i> Menara Kembar Bank Rakyat, Kuala Lumpur</p>
+            <p><i class="bi bi-telephone-fill"> </i> +60 xxx-xxxxxxxx</p>
+            <p><i class="bi bi-envelope-fill"> </i> catravel@catravel.com</p>
+          
+          </div>
+
+          <div class="col-md-4 footer-box">
+            <h6>Subscribe Us</h6>
+            <input type="email" class="form-control" placeholder="Your Email">
+            <button type="button" class="btn btn-primary">Subscribe</button>
+            
+          </div>
+        </div>
+
+        <hr>
+        <p class="copyright">Catravel Sdn Bhd (Registration No. xxxxxxxxxxxx), Level xx Tower x, Menara Kembar Bank Rakyat, xx Jalan Rakyat Brickfields, 50470 Kuala Lumpur, Malaysia
+          Copyright © 2021 Catravel</p>
+      </div>
+    </section>
+
+    <script th:src="@{/scripts/smooth-scroll.js}"></script>
+    <script>
+    var scroll = new SmoothScroll('a[href*="#"]');
+    </script>
+
+    <!-- Stepper JavaScript -->
+    <script>
+    const stepButtons = document.querySelectorAll('.step-button');
+    const progress = document.querySelector('#progress');
+
+    Array.from(stepButtons).forEach((button,index) => {
+        button.addEventListener('click', () => {
+            progress.setAttribute('value', index * 100 /(stepButtons.length - 1) );//there are 3 buttons. 2 spaces.
+
+            stepButtons.forEach((item, secindex)=>{
+                if(index > secindex){
+                    item.classList.add('done');
+                }
+                if(index < secindex){
+                    item.classList.remove('done');
+                }
+            })
+        })
+    })
+
+    
+    </script>
+
+    
+</body>
+</html>
